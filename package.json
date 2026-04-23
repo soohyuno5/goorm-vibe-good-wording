@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/goorm-vibe-good-wording/",
     "preview": "vite preview"
   },
   "dependencies": {
