@@ -73,7 +73,11 @@ async function generateQuote(category, language) {
     throw new Error(message);
   }
 
-  const outputText = result.output_text;
+  const outputText =
+    result.output
+      ?.flatMap((item) => item.content || [])
+      ?.find((contentItem) => contentItem.type === 'output_text')
+      ?.text || '';
 
   if (!outputText) {
     throw new Error('응답에서 명언 텍스트를 찾을 수 없습니다.');
